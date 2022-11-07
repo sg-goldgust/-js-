@@ -1,0 +1,46 @@
+let bfs = (arr, i, j) => {  
+    let N = arr.length;
+    let M = arr[0].length;
+    let dx = [1, -1, 0, 0]; //오 왼 위 아  
+    let dy = [0, 0, 1, -1];
+    let queue = [];
+    let L = 0;
+    queue.push([i,j]);
+    while (queue.length) {
+        let [x, y] = queue.shift();
+        for (let k = 0; k < 4; k++) {
+            let nx = x + dx[k];
+            let ny = y + dy[k];
+            if (nx >= 0 && nx < N && ny >= 0 && ny < M ) {
+                if (arr[nx][ny] === 1) return L++;
+                queue.push([nx, ny]);
+            }                      
+        }
+        L++;
+    }       
+}
+
+let solution = (arr) => {
+    let N = arr.length;
+    let M = arr[0].length;
+    let answer = Number.MIN_SAFE_INTEGER;
+    
+    for (let i = 0; i < N; i++) {   
+        for (let j = 0; j < M; j++) {
+            // 안전지역 v 
+            if(arr[i][j] === 0 ) { 
+                let distance = bfs(arr, i, j);
+                answer = Math.max(answer, distance);
+            }
+        }
+    }
+    return answer;
+}
+
+let arr = [[0, 0, 1, 0],
+           [0, 0, 0, 0],
+           [1, 0, 0, 0],
+           [0, 0, 0, 0],
+           [0, 0, 0, 1]];
+
+console.log(solution(arr));
