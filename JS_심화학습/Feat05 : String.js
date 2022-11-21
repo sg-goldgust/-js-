@@ -45,3 +45,5 @@ console.log(str);
 //
 let arr1 = [1, 2, 3];
 console.log(arr1[-2]);
+
+let david;
