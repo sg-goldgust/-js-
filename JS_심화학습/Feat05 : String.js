@@ -47,3 +47,4 @@ let arr1 = [1, 2, 3];
 console.log(arr1[-2]);
 
 let david;
+console.log("Nova");
