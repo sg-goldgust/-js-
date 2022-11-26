@@ -48,3 +48,5 @@ console.log(arr1[-2]);
 
 let david;
 console.log("Nova");
+
+let cafe;
